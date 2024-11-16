@@ -5,16 +5,16 @@ export default async function Page({
 }: {
   params: { id: string | string[] };
 }) {
+  const { id } = await params;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${params.id}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`
   );
 
   if (!response.ok) return <div>오류가 발생했습니다...</div>;
 
   const book = await response.json();
 
-  const { id, title, subTitle, description, author, publisher, coverImgUrl } =
-    book;
+  const { title, subTitle, description, author, publisher, coverImgUrl } = book;
 
   return (
     <div className={style.container}>
