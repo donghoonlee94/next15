@@ -6,7 +6,7 @@ import style from "./serachbar.module.css";
 
 export default function Searchbar() {
   const router = useRouter();
-  // Server rendering 과정에서 찾을 수 없는 값.
+  // 빌드 타임에서는 찾을 수 없는 값.
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
 
