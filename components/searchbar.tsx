@@ -6,6 +6,7 @@ import style from "./serachbar.module.css";
 
 export default function Searchbar() {
   const router = useRouter();
+  // Server rendering 과정에서 찾을 수 없는 값.
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
 
@@ -32,11 +33,7 @@ export default function Searchbar() {
 
   return (
     <div className={style.container}>
-      <input
-        value={search}
-        onChange={onChangeSearch}
-        onKeyDown={onKeyDown}
-      />
+      <input value={search} onChange={onChangeSearch} onKeyDown={onKeyDown} />
       <button onClick={onSubmit}>검색</button>
     </div>
   );

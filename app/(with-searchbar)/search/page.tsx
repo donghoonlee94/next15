@@ -4,12 +4,14 @@ import { BookData } from "@/types";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     q?: string;
-  };
+  }>;
 }) {
+  const { q } = await searchParams;
+
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${searchParams.q}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`
   );
   if (!response.ok) return <div>에러가 발생하였습니다...</div>;
 

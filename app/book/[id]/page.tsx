@@ -3,7 +3,7 @@ import style from "./page.module.css";
 export default async function Page({
   params,
 }: {
-  params: { id: string | string[] };
+  params: Promise<{ id: string | string[] }>;
 }) {
   const { id } = await params;
   const response = await fetch(

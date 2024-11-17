@@ -3,9 +3,11 @@ import Link from "next/link";
 import style from "./layout.module.css";
 import { BookData } from "@/types";
 
+// Reqeust Memoization
 async function Footer() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: "force-cache" }
   );
 
   if (!response.ok) return <footer>@summberhoony</footer>;
