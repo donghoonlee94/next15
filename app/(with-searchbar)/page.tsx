@@ -2,6 +2,9 @@ import BookItem from "@/components/book-item";
 import style from "./page.module.css";
 import { BookData } from "@/types";
 
+export const dynamic = "";
+// auto, force-dynamic, force-static, error
+
 function ErrorMessage() {
   return <div>오류가 발생했습니다...</div>;
 }
