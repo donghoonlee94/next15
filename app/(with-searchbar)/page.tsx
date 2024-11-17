@@ -2,7 +2,6 @@ import BookItem from "@/components/book-item";
 import style from "./page.module.css";
 import { BookData } from "@/types";
 
-export const dynamic = "";
 // auto, force-dynamic, force-static, error
 
 function ErrorMessage() {
