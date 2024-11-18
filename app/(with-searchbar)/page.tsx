@@ -3,6 +3,7 @@ import style from "./page.module.css";
 import { BookData } from "@/types";
 import { delay } from "@/util/delay";
 import { Suspense } from "react";
+import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 
 // auto, force-dynamic, force-static, error
 
@@ -57,13 +58,25 @@ export default function Home() {
     <div className={style.container}>
       <section>
         <h3>지금 추천하는 도서</h3>
-        <Suspense fallback={<div>RecoBooks loading...</div>}>
+        <Suspense
+          fallback={
+            <>
+              <BookListSkeleton count={3} />
+            </>
+          }
+        >
           <RecoBooks />
         </Suspense>
       </section>
       <section>
         <h3>등록된 모든 도서</h3>
-        <Suspense fallback={<div>AllBooks loading...</div>}>
+        <Suspense
+          fallback={
+            <>
+              <BookListSkeleton count={3} />
+            </>
+          }
+        >
           <AllBooks />
         </Suspense>
       </section>
