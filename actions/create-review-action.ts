@@ -1,7 +1,6 @@
 "use server";
 
-export async function createReviewAction(formData: FormData) {
-  const bookId = formData.get("bookId")?.toString();
+export async function createReviewAction(bookId: string, formData: FormData) {
   const content = formData.get("content")?.toString();
   const author = formData.get("author")?.toString();
 

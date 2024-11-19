@@ -43,9 +43,11 @@ async function BookDetail({ bookId }: { bookId: string }) {
 }
 
 function ReviewEditor({ bookId }: { bookId: string }) {
+  const createReviewWithBookIdAction = createReviewAction.bind(null, bookId);
+
   return (
     <section>
-      <form action={createReviewAction}>
+      <form action={createReviewWithBookIdAction}>
         <input name="bookId" value={bookId} hidden readOnly />
         <input required name="content" placeholder="리뷰 내용" />
         <input required name="author" placeholder="작성자" />
