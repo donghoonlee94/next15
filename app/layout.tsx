@@ -5,22 +5,26 @@ import { BookData } from "@/types";
 
 // Reqeust Memoization
 async function Footer() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
-    { cache: "force-cache" }
-  );
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+      { cache: "force-cache" }
+    );
 
-  if (!response.ok) return <footer>@summberhoony</footer>;
+    if (!response.ok) return <footer>@summberhoony</footer>;
 
-  const books: BookData[] = await response.json();
-  const bookCount = books.length;
+    const books: BookData[] = await response.json();
+    const bookCount = books.length;
 
-  return (
-    <footer>
-      <div>@summberhoony</div>
-      <div>{bookCount}개의 도서가 등록되어 있습니다</div>
-    </footer>
-  );
+    return (
+      <footer>
+        <div>@summberhoony</div>
+        <div>{bookCount}개의 도서가 등록되어 있습니다</div>
+      </footer>
+    );
+  } catch {
+    return <div>Footer 로딩 중 오류가 발생하였습니다.</div>;
+  }
 }
 
 export default function RootLayout({
