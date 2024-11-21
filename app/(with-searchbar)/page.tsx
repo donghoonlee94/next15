@@ -3,6 +3,7 @@ import style from "./page.module.css";
 import { BookData } from "@/types";
 import { Suspense } from "react";
 import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
+import { Metadata } from "next";
 
 // auto, force-dynamic, force-static, error
 
@@ -49,6 +50,16 @@ async function RecoBooks() {
 }
 
 export const dynamic = "force-dynamic";
+
+export const metaData: Metadata = {
+  title: "북스",
+  description: "도서를 만나보세요",
+  openGraph: {
+    title: "북스",
+    description: "도서를 만나보세요",
+    images: ["./thumbnail.png"],
+  },
+};
 
 export default function Home() {
   return (
