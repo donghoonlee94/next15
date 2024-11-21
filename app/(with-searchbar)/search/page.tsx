@@ -25,7 +25,25 @@ async function SearchResult({ q }: { q: string }) {
   );
 }
 
-export const metaData: Metadata = {};
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    q?: string;
+  }>;
+}): Promise<Metadata> {
+  const { q = "" } = await searchParams;
+
+  return {
+    title: `${q} : 검색`,
+    description: `${q}: 검색 결과`,
+    openGraph: {
+      title: `${q} : 검색`,
+      description: `${q}: 검색 결과`,
+      images: ["./thumbnail.png"],
+    },
+  };
+}
 
 export default async function Page({
   searchParams,
