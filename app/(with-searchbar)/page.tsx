@@ -51,7 +51,7 @@ async function RecoBooks() {
 
 export const dynamic = "force-dynamic";
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: "북스",
   description: "도서를 만나보세요",
   openGraph: {
